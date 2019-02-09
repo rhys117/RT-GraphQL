@@ -1,3 +1,12 @@
+
+request_tracker:
+  adapter: <%= ENV.fetch("RT_ADAPTER") %>
+  database: <%= ENV.fetch("RT_DATABASE") %>
+  port: <%= ENV.fetch("RT_PORT") %>
+  host: <%= ENV.fetch("RT_HOST") %>
+  username: <%= ENV.fetch("RT_DB_USER") %>
+  password: <%= ENV.fetch("RT_DB_PASSWORD") %>
+
 # PostgreSQL. Versions 9.1 and up are supported.
 #
 # Install the pg driver:
@@ -23,7 +32,7 @@ default: &default
 
 development:
   <<: *default
-  database: rt-graphql_development
+  database: rt_graphql_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +66,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: rt-graphql_test
+  database: rt_graphql_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +89,6 @@ test:
 #
 production:
   <<: *default
-  database: rt-graphql_production
+  database: rt_graphql_production
   username: rt-graphql
   password: <%= ENV['RT-GRAPHQL_DATABASE_PASSWORD'] %>
