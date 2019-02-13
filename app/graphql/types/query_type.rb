@@ -46,5 +46,14 @@ module Types
     def user_by_email(email:)
       RT::User.find_by_emailaddress(email)
     end
+
+    field :attachment, AttachmentType, null: true do
+      description "Find an attachement by ID"
+      argument :id, ID, required: true
+    end
+
+    def attachment(id:)
+      RT::Attachment.find(id)
+    end
   end
 end

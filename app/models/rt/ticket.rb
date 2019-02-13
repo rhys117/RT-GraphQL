@@ -12,11 +12,13 @@ class RT::Ticket < ActiveRecord::Base
   has_one :requestor_group, -> { where type: 'Requestor' }, class_name: 'Group', foreign_key: :instance
   has_many :requestors, through: :requestor_group, class_name: 'User', source: :users
 
-  # Below does not attribute to merged tickets transactions
-  # has_many :transactions, class_name: 'Transaction', foreign_key: :objectid
-  # has_many :attachments, through: :transactions, class_name: 'Attachment', source: :attachment
-  # has_many :comment_transactions, -> { where "type = ? OR type = ?", 'Comment', 'Create' }, class_name: 'Transaction', foreign_key: :objectid
-  # has_many :comments, through: :comment_transactions, class_name: 'Attachment', source: :attachment
+  # Below does not account for merged tickets transactions - If added remove custom methods below
+=begin
+    has_many :transactions, class_name: 'Transaction', foreign_key: :objectid
+    has_many :attachments, through: :transactions, class_name: 'Attachment', source: :attachment
+    has_many :comment_transactions, -> { where "type = ? OR type = ?", 'Comment', 'Create' }, class_name: 'Transaction', foreign_key: :objectid
+    has_many :comments, through: :comment_transactions, class_name: 'Attachment', source: :attachment
+=end
 
   has_one :owner_obj, class_name: 'User', primary_key: :creator, foreign_key: :id
   has_one :creator, class_name: 'User', primary_key: :creator, foreign_key: :id
@@ -43,9 +45,24 @@ class RT::Ticket < ActiveRecord::Base
     transactions.select(:id)
   end
 
+  def attachments
+    transaction_ids.where(objecttype: 'RT::Ticket').map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+  end
+
   def comments
-    relevant_trans = transactions.where("type = ? OR type = ?", 'Comment', 'Create')
-    relevant_trans.map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+    transaction_ids.where("objecttype = ? AND (type = ? OR type = ?)", 'RT::Ticket', 'Comment', 'Create')
+      .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+  end
+
+  def correspondence
+    transaction_ids.where("objecttype = ? AND type = ?", 'RT::Ticket', 'Correspond')
+      .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+  end
+
+  def comments_and_correspondence
+    transaction_ids.where("objecttype = ? AND (type = ? OR type = ? OR type = ?)",
+                          'RT::Ticket', 'Comment', 'Correspond', 'Create')
+      .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
   end
 
   # This setup is to avoid stack to deep errors due to RT database structure
