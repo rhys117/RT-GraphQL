@@ -12,4 +12,5 @@ class Types::TicketType < Types::BaseObject
   field :due, GraphQL::Types::ISO8601DateTime,                  null: true
   field :priority,  Integer,                                    null: false
   field :comments_and_correspondence, [Types::AttachmentType],  null: true
+  field :links, [Types::LinkType],                              null: true
 end
