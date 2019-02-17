@@ -11,6 +11,7 @@ class Types::TicketType < Types::BaseObject
   field :last_updated, GraphQL::Types::ISO8601DateTime,         null: true
   field :due, GraphQL::Types::ISO8601DateTime,                  null: true
   field :priority,  Integer,                                    null: false
+  field :history, [Types::HistoryType],                         null: true
   field :comments_and_correspondence, [Types::AttachmentType],  null: true
   field :links, [Types::LinkType],                              null: true
 end

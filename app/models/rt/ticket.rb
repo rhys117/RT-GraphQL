@@ -42,7 +42,7 @@ class RT::Ticket < ActiveRecord::Base
   end
 
   def transactions
-    RT::Transaction.where(objectid: merged_ticket_ids)
+    RT::Transaction.where(objectid: merged_ticket_ids).where.not(objecttype: 'RT::Group').order(:id)
   end
 
   alias_method :history, :transactions
