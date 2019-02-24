@@ -24,3 +24,4 @@
 
 .env
 .env-local
+/lib/request_tracker/rest_api/cookies

@@ -24,9 +24,9 @@ class RT::Ticket < ActiveRecord::Base
     has_many :comments, through: :comment_transactions, class_name: 'Attachment', source: :attachment
 =end
 
-  has_one :owner_obj, class_name: 'User', primary_key: :creator, foreign_key: :id
+  has_one :owner_obj, class_name: 'User', primary_key: :owner, foreign_key: :id
   has_one :creator, class_name: 'User', primary_key: :creator, foreign_key: :id
-  has_one :last_updated_by, class_name: 'User', primary_key: :creator, foreign_key: :id
+  has_one :last_updated_by, class_name: 'User', primary_key: :lastupdatedby, foreign_key: :id
 
   alias_attribute :effective_id, :effectiveid
   alias_attribute :last_updated, :lastupdated
