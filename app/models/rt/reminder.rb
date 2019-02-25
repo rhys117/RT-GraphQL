@@ -1,11 +1,11 @@
-class RT::Ticket < RT::TicketBase
-  default_scope { where "effectiveid = id AND type = 'ticket'" }
+class RT::Reminder < RT::TicketBase
+  default_scope { where "effectiveid = id AND type = 'reminder'" }
 
   # only ever return effective ticket
   def self.find(id)
     entry = RT::Ticket.select(:effectiveid, :type).unscoped.where(id: id).limit(1)&.first
     raise "#{id} not found" if entry.nil?
-    raise "#{id} is a reminder. Use RT::Reminder Class" if entry.type == 'reminder'
+    raise "#{id} is a ticket. Use RT::Ticket Class" if entry.type == 'ticket'
 
     super(entry.effectiveid)
   end
