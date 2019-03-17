@@ -5,7 +5,7 @@ class RT::TicketBase < ActiveRecord::Base
 
   LINKS_INVERTED_VALUES = { 'RefersTo' => 'ReferredToBy', 'ReferredToBy' => 'RefersTo',
                             'DependsOn' => 'DependedOnBy', 'DependedOnBy' => 'DependsOn',
-                            'Child' => 'Parent', 'Parent' => 'Child' }.freeze
+                            'Child' => 'MemberOf', 'MemberOf' => 'Child' }.freeze
 
   belongs_to :queue_obj, class_name: 'Queue', foreign_key: :queue
 
@@ -45,32 +45,27 @@ class RT::TicketBase < ActiveRecord::Base
   end
 
   def attachments
-    transaction_ids.where(objecttype: 'RT::Ticket').map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+    RT::Attachment.where("transactionid IN (?)", transaction_ids.where(objecttype: 'RT::Ticket').ids)
   end
 
   def comments
-    transaction_ids.where("objecttype = ? AND (type = ? OR type = ?)", 'RT::Ticket', 'Comment', 'Create')
-        .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+    RT::Attachment.where("transactionid IN (?)", transaction_ids.where("objecttype = ? AND (type = ? OR type = ?)",
+                                                                       'RT::Ticket', 'Comment', 'Create').ids)
   end
 
   def correspondence
-    transaction_ids.where("objecttype = ? AND type = ?", 'RT::Ticket', 'Correspond')
-        .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+    RT::Attachment.where("transactionid IN (?)", transaction_ids.where("objecttype = ? AND type = ?",
+                                                                       'RT::Ticket', 'Correspond').ids)
   end
 
   def comments_and_correspondence
-    transaction_ids.where("objecttype = ? AND (type = ? OR type = ? OR type = ?)",
-                          'RT::Ticket', 'Comment', 'Correspond', 'Create')
-        .map { |ent| RT::Attachment.find_by_transactionid(ent.id) }
+    RT::Attachment.where("transactionid IN (?)", transaction_ids.where("objecttype = ? AND (type = ? OR type = ? OR type = ?)",
+                                                                        'RT::Ticket', 'Comment', 'Correspond', 'Create').ids)
   end
 
-  def links
-    ids = merged_ticket_ids.map { |r| r.id }
-    local_base = RT::Link.where("localbase = ANY(array[?]) AND type != 'MergedInto'", ids)
-    local_target = RT::Link.where("localtarget = ANY(array[?]) AND type != 'MergedInto'", ids)
-    local_base_converted = local_base.map { |en| { type: en.type, ticket: RT::Ticket.find(en.localtarget) } }
-    local_target_converted = local_target.map { |en| { type: LINKS_INVERTED_VALUES[en.type], ticket: RT::Ticket.find(en.localbase) } }
-    (local_base_converted + local_target_converted).reject { |result| result[:ticket].type == 'reminder' }
+  def latest_update
+    RT::Attachment.find_by_transactionid(transaction_ids.where("objecttype = ? AND (type = ? OR type = ? OR type = ?)",
+                                                               'RT::Ticket', 'Comment', 'Correspond', 'Create').order(:id).last.id)
   end
 
   # This setup is to avoid stack to deep errors due to RT database structure

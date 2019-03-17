@@ -13,5 +13,10 @@ class Types::TicketType < Types::BaseObject
   field :priority,  Integer,                                    null: false
   field :history, [Types::HistoryType],                         null: true
   field :comments_and_correspondence, [Types::AttachmentType],  null: true
-  field :links, [Types::LinkType],                              null: true
+  field :refers_to, [Types::TicketType],                        null: true
+  field :referred_to_by, [Types::TicketType],                   null: true
+  field :depends_on, [Types::TicketType],                       null: true
+  field :depended_on_by, [Types::TicketType],                   null: true
+  field :parents, [Types::TicketType],                          null: true
+  field :children, [Types::TicketType],                         null: true
 end
