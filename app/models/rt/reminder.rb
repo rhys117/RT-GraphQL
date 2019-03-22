@@ -9,4 +9,10 @@ class RT::Reminder < RT::TicketBase
 
     super(entry.effectiveid)
   end
+
+  alias_method :belongs_to, :refers_to
+
+  def ticket
+    refers_to.first
+  end
 end
