@@ -30,12 +30,12 @@ class RT::TicketBase < ActiveRecord::Base
   alias_attribute :effective_id, :effectiveid
   alias_attribute :last_updated, :lastupdated
 
-  def merged_ticket_ids
-    RT::Ticket.select(:id).unscoped.where(effectiveid: id)
+  def current_and_merged_ids
+    RT::Ticket.unscoped.select(:id).where(effectiveid: id)
   end
 
   def transactions
-    RT::Transaction.where(objectid: merged_ticket_ids).where.not(objecttype: 'RT::Group').order(:id)
+    RT::Transaction.where(objectid: current_and_merged_ids).where.not(objecttype: 'RT::Group').order(:id)
   end
 
   alias_method :history, :transactions
@@ -85,14 +85,16 @@ class RT::TicketBase < ActiveRecord::Base
   end
 
   def parents
-    RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
-        .where("links.localbase IN (?) AND links.type = ?", merged_ticket_ids.ids, 'MemberOf')
-        .where("tickets.type = ?", 'ticket').where.not("tickets.id = ?", id)
+    join = RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
+
+    join.where(links: { localbase: current_and_merged_ids, type: 'MemberOf' })
+        .or(join.where(links: { type: 'ticket' })).where.not(tickets: { id: id })
   end
 
   def children
-    RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
-        .where("links.localtarget IN (?) AND links.type = ?", merged_ticket_ids.ids, 'MemberOf')
+    join = RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
+
+    join.where("links.localtarget IN (?) AND links.type = ?", current_and_merged_ids, 'MemberOf')
         .where("tickets.type = ?", 'ticket').where.not("tickets.id = ?", id)
   end
 
@@ -119,9 +121,9 @@ class RT::TicketBase < ActiveRecord::Base
   private
 
   def links_query(type:)
-    RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
-        .where("(links.localbase IN (?) AND links.type = ?) OR (links.localtarget IN (?) AND links.type = ?)",
-               merged_ticket_ids.ids, type, merged_ticket_ids.ids, LINKS_INVERTED_VALUES[type])
-        .where("tickets.type = ?", 'ticket').where.not("tickets.id = ?", id)
+    join = RT::Ticket.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
+
+    join.where(links: {localbase: current_and_merged_ids, type: type })
+        .or(join.where(links: {localtarget: current_and_merged_ids, type: LINKS_INVERTED_VALUES[type] }))
   end
 end

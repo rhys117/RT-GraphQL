@@ -9,4 +9,9 @@ class RT::Ticket < RT::TicketBase
 
     super(entry.effectiveid)
   end
+
+  def self.rest_create(queue_name:, subject:, owner_name: 'Nobody', initial_comment: '', session: RT::Session.new)
+    RT::REST::Ticket.new(queue_name: queue_name, subject: subject, owner_name: owner_name,
+                         initial_comment: initial_comment, session: session)
+  end
 end
