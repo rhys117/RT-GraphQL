@@ -48,3 +48,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'dotenv-rails'
 gem 'graphql'
 gem 'rt-client'
+gem 'rack-cors', :require => 'rack/cors'
