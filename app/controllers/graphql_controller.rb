@@ -24,6 +24,7 @@ class GraphqlController < ActionController::Base
     crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
     token = crypt.decrypt_and_verify session[:token]
     user_id = token.gsub('user-id:', '').to_i
+    binding.pry
     RT::User.find_by id: user_id
   rescue ActiveSupport::MessageVerifier::InvalidSignature
     nil

@@ -55,3 +55,6 @@ group :development  do
   gem 'coffee-rails'
   gem "graphiql-rails"
 end
+
+# After move from api only
+gem 'turbolinks', '~> 5'
