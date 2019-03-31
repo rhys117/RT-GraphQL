@@ -58,3 +58,5 @@ end
 
 # After move from api only
 gem 'turbolinks', '~> 5'
+
+gem 'snmp'

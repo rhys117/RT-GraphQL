@@ -11,31 +11,21 @@ class RT::User < ActiveRecord::Base
   alias_attribute :real_name, :realname
   alias_attribute :organisation, :organization
 
-  # Todo: Finish this method.
+  # Todo: Figure out if way to check passwords that have been processed with perl bcrypt.
   def authenticate(password:)
     if self.password[0..7] == '!bcrypt!'
-      return password == 'password'
+      path = "#{Rails.root}/tmp/rt_cookies/#{id}/cookie"
+      dirname = File.dirname(path)
+      FileUtils.mkdir_p(dirname) unless File.directory?(dirname)
 
+      client = RT_Client.new(server: ENV.fetch('RT_HOST'),
+                             user: name,
+                             pass: password,
+                             cookies: dirname)
 
-      raise "BCrypt passwords not yet supported."
-
-      password_hex = Digest::SHA512.hexdigest password
-      # my $hash = Crypt::Eksblowfish::Bcrypt::bcrypt_hash({
-      #                                                        key_nul => 1,
-      #                                                        cost    => $rounds,
-      #                                                        salt    => $salt,
-      #                                                    }, Digest::SHA::sha512( Encode::encode( 'UTF-8', $password) ) );
-      # Todo: convert into binary string
-      password_binary_string = nil
-      # Todo: Salt to decode64 - $salt = Crypt::Eksblowfish::Bcrypt::de_base64( substr($rest[1], 0, 22) );
-      salt = Base64::decode64(self.password[0..21])
-      hash = BCrypt::Engine.hash_secret password_binary_string, salt
-
-      hash == self.password
-      # return join("!", "", "bcrypt", sprintf("%02d", $rounds),
-      #             Crypt::Eksblowfish::Bcrypt::en_base64( $salt ).
-      #                 Crypt::Eksblowfish::Bcrypt::en_base64( $hash )
-      # );
+      correct = !client.show(1).empty?
+      FileUtils.rm_rf(dirname)
+      correct
     else
       (Digest::MD5.hexdigest password) == self.password
     end
