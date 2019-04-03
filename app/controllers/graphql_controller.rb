@@ -19,10 +19,11 @@ class GraphqlController < ActionController::Base
   private
 
   def current_user
-    return unless session[:token]
+    token = session[:token] || request.headers['HTTP_AUTHORIZATION']
+    return unless token && !token.empty?
 
     crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
-    token = crypt.decrypt_and_verify session[:token]
+    token = crypt.decrypt_and_verify token
     user_id = token.gsub('user-id:', '').to_i
     RT::User.find_by id: user_id
   rescue ActiveSupport::MessageVerifier::InvalidSignature
