@@ -11,7 +11,7 @@ module Types
       RT::Ticket.find(id)
     end
 
-    field :open_tickets, function: Resolvers::TicketsSearch.with_scope(RT::Ticket.where status: %w(open new))
+    field :open_tickets, function: Resolvers::TicketsSearch.with_scope(RT::Ticket.where status: %w(open))
 
     field :queue, QueueType, null: false do
       description "Find a queue by ID"

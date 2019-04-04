@@ -9,7 +9,8 @@ class RT::TicketBase < ActiveRecord::Base
 
   belongs_to :queue_obj, class_name: 'Queue', foreign_key: :queue
 
-  has_many :custom_fields, class_name: 'ObjectCustomFieldValue', foreign_key: :objectid
+  has_many :custom_fields, through: :queue_obj
+  has_many :custom_field_values, class_name: 'ObjectCustomFieldValue', foreign_key: :objectid
 
   has_many :groups, class_name: 'Group', foreign_key: :instance
   has_one :requestor_group, -> { where type: 'Requestor' }, class_name: 'Group', foreign_key: :instance
@@ -66,6 +67,16 @@ class RT::TicketBase < ActiveRecord::Base
   def latest_update
     RT::Attachment.find_by_transactionid(transaction_ids.where("objecttype = ? AND (type = ? OR type = ? OR type = ?)",
                                                                'RT::Ticket', 'Comment', 'Correspond', 'Create').order(:id).last.id)
+  end
+
+  # Todo: Optimize to avoid hitting DB
+  def custom_fields_and_values
+    binding.pry
+    results = {}
+    custom_field_values.each { |field| results[field.name] = field.value }
+    custom_fields.each { |field| results[field.name] = nil unless results[field.name] }
+
+    results
   end
 
   def refers_to
