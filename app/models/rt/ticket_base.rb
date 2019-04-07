@@ -3,6 +3,8 @@ class RT::TicketBase < ActiveRecord::Base
   self.table_name = 'tickets'
   self.inheritance_column = :_type_disabled
 
+  scope :like, ->(field, value) { where arel_table[field].matches("%#{value}%") }
+
   LINKS_INVERTED_VALUES = { 'RefersTo' => 'ReferredToBy', 'ReferredToBy' => 'RefersTo',
                             'DependsOn' => 'DependedOnBy', 'DependedOnBy' => 'DependsOn',
                             'Child' => 'MemberOf', 'MemberOf' => 'Child' }.freeze

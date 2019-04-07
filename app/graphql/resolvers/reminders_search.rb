@@ -18,7 +18,7 @@ class Resolvers::RemindersSearch
     end
   end
 
-  type types[Types::TicketType]
+  type types[Types::ReminderType]
 
   scope do
     object.respond_to?(:reminders) ? object.reminders : RT::Reminder.all
@@ -31,8 +31,15 @@ class Resolvers::RemindersSearch
     argument :ownerId, Integer, required: false
   end
 
+  OrderEnum = GraphQL::EnumType.define do
+    name 'ReminderOrder'
+
+    value 'PRIORITY'
+  end
+
   # when "filter" is passed "apply_filter" would be called to narrow the scope
   option :filter, type: ReminderFilter, with: :apply_filter
+  option :order, type: OrderEnum, default: 'PRIORITY'
 
   # apply_filter recursively loops through "OR" branches
   # WARNING: .with_scope can be overridden by filters
@@ -51,5 +58,9 @@ class Resolvers::RemindersSearch
     value['OR'].reduce(branches) { |s, v| normalize_filters(v, s) } if value['OR'].present?
 
     branches
+  end
+
+  def apply_order_with_priority(scope)
+    scope.order 'priority DESC'
   end
 end

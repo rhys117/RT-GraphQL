@@ -2,8 +2,8 @@ class RT::User < ActiveRecord::Base
   establish_connection :request_tracker
   include BCrypt
 
-  has_many :tickets, -> { where type: 'ticket' }, foreign_key: 'owner'
-  has_many :reminders, -> { where status: %w(open new) }, class_name: 'Reminder', foreign_key: 'owner'
+  has_many :tickets, class_name: 'Ticket', foreign_key: 'owner'
+  has_many :reminders, class_name: 'Reminder', foreign_key: 'owner'
   has_many :group_members, class_name: 'GroupMember', foreign_key: :memberid
   has_many :groups, class_name: 'Group', through: :group_members
 

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c56382b1-ea94-4403-85ba-5d5cbacd2385" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/graphql/types/query_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/types/query_type.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/graphql/types/user_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/types/user_type.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/ticket_base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/ticket_base.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/rt/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/user.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -22,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="query_type.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/graphql/types/query_type.rb">
+      <file leaf-file-name="reminders_search.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+            <state relative-caret-position="587">
+              <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -34,35 +34,17 @@
       <file leaf-file-name="tickets_search.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+            <state relative-caret-position="600">
+              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_type.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/graphql/types/user_type.rb">
+      <file leaf-file-name="ticket_base.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="reminders_search.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ticket_type.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/graphql/types/ticket_type.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+            <state relative-caret-position="478">
+              <caret line="130" column="2" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -80,6 +62,10 @@
       <find>tur</find>
       <find>user</find>
       <find>rt</find>
+      <find>rem</find>
+      <find>TicketTyp</find>
+      <find>pr</find>
+      <find>where</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -108,7 +94,6 @@
         <option value="$PROJECT_DIR$/app/models/rt/custom_field_value.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env-local" />
-        <option value="$PROJECT_DIR$/app/models/rt/reminder.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/queue_type.rb" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/config/initializers/extensions.rb" />
@@ -128,11 +113,13 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/graphql/types/ticket_type.rb" />
         <option value="$PROJECT_DIR$/app/models/rt/queue.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/ticket_base.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/query_type.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/reminder_search.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/user_type.rb" />
         <option value="$PROJECT_DIR$/app/models/rt/user.rb" />
+        <option value="$PROJECT_DIR$/app/graphql/types/reminder_type.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/reminder.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/ticket_base.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" />
       </list>
@@ -178,6 +165,12 @@
               <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
               <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="graphql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -192,6 +185,13 @@
               <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="rt" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -368,12 +368,12 @@
       <workItem from="1553414596693" duration="1577000" />
       <workItem from="1553690439018" duration="3210000" />
       <workItem from="1553842172478" duration="28036000" />
-      <workItem from="1554371616022" duration="5894000" />
+      <workItem from="1554371616022" duration="10706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106056000" />
+    <option name="totallyTimeSpent" value="110868000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="960" height="877" extended-state="0" />
@@ -406,6 +406,11 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/graphql/types/query_type.rb">
@@ -536,62 +541,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/rt/user.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="74" column="16" lean-forward="true" selection-start-line="74" selection-start-column="16" selection-end-line="74" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/graphql/types/query_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+        <state relative-caret-position="540">
+          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/graphql/types/ticket_type.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+          <caret line="15" column="35" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/user.rb">
+    <entry file="file://$PROJECT_DIR$/app/graphql/types/query_type.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="7" lean-forward="true" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/reminder.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="20" column="31" lean-forward="true" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
+        <state relative-caret-position="570">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/graphql/types/user_type.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+        <state relative-caret-position="120">
+          <caret line="8" column="56" lean-forward="true" selection-start-line="8" selection-start-column="56" selection-end-line="8" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/graphql/types/reminder_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/reminder.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="66" lean-forward="true" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="52" lean-forward="true" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="130" column="2" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="34" column="27" lean-forward="true" selection-start-line="34" selection-start-column="27" selection-end-line="34" selection-end-column="27" />
+        <state relative-caret-position="587">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
         </state>
       </provider>
     </entry>
