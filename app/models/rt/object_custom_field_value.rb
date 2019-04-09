@@ -1,5 +1,4 @@
-class RT::ObjectCustomFieldValue < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::ObjectCustomFieldValue < RequestTrackerRecord
   self.table_name = 'objectcustomfieldvalues'
 
   belongs_to :ticket, class_name: 'Ticket', foreign_key: :id, primary_key: :objectid

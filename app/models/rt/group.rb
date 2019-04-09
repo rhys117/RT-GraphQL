@@ -1,5 +1,4 @@
-class RT::Group < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::Group < RequestTrackerRecord
   self.table_name = 'groups'
   self.inheritance_column = :_type_disabled
 

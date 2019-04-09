@@ -1,5 +1,4 @@
-class RT::Queue < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::Queue < RequestTrackerRecord
   self.table_name = 'queues'
 
   has_many :tickets, foreign_key: :queue

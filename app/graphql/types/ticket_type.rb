@@ -20,6 +20,23 @@ class Types::TicketType < Types::BaseObject
   field :depended_on_by, [Types::TicketType],                         null: true
   field :parents, [Types::TicketType],                                null: true
   field :children, [Types::TicketType],                               null: true
+  field :reminders, [Types::TicketType],                              null: true
+  field :no_reminder, Boolean,                                        null: false
+
+  field :custom_field_value, Types::CustomFieldAndValueType, null: true do
+    argument :field_name, String, required: true
+  end
+
+  def no_reminder
+    self.object.no_reminder?
+  end
+
+  def custom_field_value(field_name:)
+    field = self.object.custom_fields.where(name: field_name).limit(1)&.first
+    return nil unless field
+
+    { name: field.name, value: field.value_for(object_id: self.object.id) }
+  end
 
   def custom_fields_and_values
     self.object.custom_fields_and_values.map do |name, value|

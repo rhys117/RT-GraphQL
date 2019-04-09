@@ -1,7 +1,4 @@
-class RT::User < ActiveRecord::Base
-  establish_connection :request_tracker
-  include BCrypt
-
+class RT::User < RequestTrackerRecord
   has_many :tickets, class_name: 'Ticket', foreign_key: 'owner'
   has_many :reminders, class_name: 'Reminder', foreign_key: 'owner'
   has_many :group_members, class_name: 'GroupMember', foreign_key: :memberid
@@ -29,6 +26,10 @@ class RT::User < ActiveRecord::Base
     else
       (Digest::MD5.hexdigest password) == self.password
     end
+  end
+
+  def tickets_missing_reminders
+    tickets.select { |ticket| ticket.no_reminder? }
   end
 
   private

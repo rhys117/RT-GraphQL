@@ -1,5 +1,4 @@
-class RT::Transaction < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::Transaction < RequestTrackerRecord
   self.table_name = 'transactions'
   self.inheritance_column = :_type_disabled
 

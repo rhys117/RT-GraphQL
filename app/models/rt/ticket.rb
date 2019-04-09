@@ -14,4 +14,13 @@ class RT::Ticket < RT::TicketBase
     RT::REST::Ticket.new(queue_name: queue_name, subject: subject, owner_name: owner_name,
                          initial_comment: initial_comment, session: session)
   end
+
+  def reminders
+    join = RT::Reminder.joins("JOIN links ON tickets.id = links.localbase OR tickets.id = links.localtarget")
+    join.where(links: {localtarget: current_and_merged_ids, type: 'RefersTo' })
+  end
+
+  def no_reminder?
+    reminders.where(owner: owner.id).where.not(status: NOT_RESOLVED_STATUSES).count.zero?
+  end
 end

@@ -1,5 +1,4 @@
-class RT::Attachment < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::Attachment < RequestTrackerRecord
   self.table_name = 'attachments'
 
   belongs_to :its_transaction, class_name: 'Transaction', foreign_key: :transactionid

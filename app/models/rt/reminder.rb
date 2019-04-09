@@ -1,5 +1,5 @@
 class RT::Reminder < RT::TicketBase
-  default_scope { where "effectiveid = id AND type = 'reminder'" }
+  default_scope { where "tickets.effectiveid = tickets.id AND tickets.type = 'reminder'" }
 
   # only ever return effective ticket
   def self.find(id)

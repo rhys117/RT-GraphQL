@@ -1,10 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/../skymesh/rt-api/app/graphql/types/ticket_type.rb" description="field :custom_fields_and_values, [Types::CustomFie..." line="15" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="c56382b1-ea94-4403-85ba-5d5cbacd2385" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/graphql/types/ticket_type.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/graphql/types/ticket_type.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/attachment.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/attachment.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/custom_field.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/custom_field.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/custom_field_value.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/custom_field_value.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/group.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/group.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/group_member.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/group_member.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/link.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/link.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/object_custom_field.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/object_custom_field.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/object_custom_field_value.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/object_custom_field_value.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/queue.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/queue.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/reminder.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/reminder.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/ticket.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/ticket.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/rt/ticket_base.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/ticket_base.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/rt/transaction.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/transaction.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/rt/user.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/rt/user.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
@@ -22,29 +37,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="reminders_search.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb">
+      <file leaf-file-name="ticket.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/rt/ticket.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+            <state relative-caret-position="345">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tickets_search.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb">
+      <file leaf-file-name="request_tracker_record.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/request_tracker_record.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="24" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
+            <state relative-caret-position="60">
+              <caret line="4" column="23" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="23" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/rt/user.rb">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file leaf-file-name="ticket_base.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="130" column="2" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="2" />
+            <state relative-caret-position="441">
+              <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reminder.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/rt/reminder.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ticket_type.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/graphql/types/ticket_type.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -66,6 +104,10 @@
       <find>TicketTyp</find>
       <find>pr</find>
       <find>where</find>
+      <find>refers_to</find>
+      <find>referr</find>
+      <find>referred</find>
+      <find>effective</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -74,10 +116,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/rt/custom_field.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/group.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/group_member.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/object_custom_field_value.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/license.txt" />
@@ -85,13 +123,9 @@
         <option value="$PROJECT_DIR$/app/graphql/types/rt/transaction_type.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/rt/ticket_type.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/transaction_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/attachment.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/AttachmentType.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/link.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/link_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/transaction.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/history_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/custom_field_value.rb" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.env-local" />
         <option value="$PROJECT_DIR$/app/graphql/types/queue_type.rb" />
@@ -99,7 +133,6 @@
         <option value="$PROJECT_DIR$/config/initializers/extensions.rb" />
         <option value="$PROJECT_DIR$/lib/request_tracker/rest_api/reminder.rb" />
         <option value="$PROJECT_DIR$/lib/request_tracker/rest_api/ticket.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/ticket.rb" />
         <option value="$PROJECT_DIR$/app/graphql/mutations/create_ticket.rb" />
         <option value="$PROJECT_DIR$/app/graphql/mutations/sign_in_mutation.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/mutation_type.rb" />
@@ -111,17 +144,29 @@
         <option value="$PROJECT_DIR$/app/controllers/graphql_controller.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/ticket_search.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/graphql/types/ticket_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/queue.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/query_type.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/reminder_search.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/user_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/user.rb" />
         <option value="$PROJECT_DIR$/app/graphql/types/reminder_type.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/reminder.rb" />
-        <option value="$PROJECT_DIR$/app/models/rt/ticket_base.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/tickets_search.rb" />
         <option value="$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb" />
+        <option value="$PROJECT_DIR$/app/models/application_record.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/attachment.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/custom_field_value.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/group.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/group_member.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/link.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/object_custom_field.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/object_custom_field_value.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/queue.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/transaction.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/custom_field.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/ticket_base.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/reminder.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/user.rb" />
+        <option value="$PROJECT_DIR$/app/models/request_tracker_record.rb" />
+        <option value="$PROJECT_DIR$/app/models/rt/ticket.rb" />
+        <option value="$PROJECT_DIR$/app/graphql/types/ticket_type.rb" />
       </list>
     </option>
   </component>
@@ -165,12 +210,6 @@
               <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
               <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="graphql" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -178,7 +217,7 @@
               <item name="rt-graphql" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="graphql" type="462c0819:PsiDirectoryNode" />
-              <item name="resolvers" type="462c0819:PsiDirectoryNode" />
+              <item name="types" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rt-graphql" type="b2602c69:ProjectViewProjectNode" />
@@ -368,12 +407,12 @@
       <workItem from="1553414596693" duration="1577000" />
       <workItem from="1553690439018" duration="3210000" />
       <workItem from="1553842172478" duration="28036000" />
-      <workItem from="1554371616022" duration="10706000" />
+      <workItem from="1554371616022" duration="20310000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110868000" />
+    <option name="totallyTimeSpent" value="120472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="960" height="877" extended-state="0" />
@@ -534,27 +573,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/queue.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="24" lean-forward="true" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/graphql/types/ticket_type.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="35" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/graphql/types/query_type.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -576,24 +594,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/reminder.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/application_record.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="66" lean-forward="true" selection-start-line="1" selection-start-column="66" selection-end-line="1" selection-end-column="66" />
+          <caret line="1" column="28" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/rt/attachment.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="52" lean-forward="true" selection-start-line="1" selection-start-column="52" selection-end-line="1" selection-end-column="52" />
+        <state>
+          <caret column="43" selection-start-column="43" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/rt/custom_field_value.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="130" column="2" selection-start-line="130" selection-start-column="2" selection-end-line="130" selection-end-column="2" />
+        <state>
+          <caret column="49" selection-start-column="49" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/group.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/group_member.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/object_custom_field.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="50" selection-start-column="50" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/queue.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/object_custom_field_value.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/transaction.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="44" selection-start-column="44" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/link.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="37" selection-start-column="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/custom_field.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -604,10 +678,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/graphql/types/custom_field_and_value_type.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/graphql/resolvers/reminders_search.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+        <state relative-caret-position="-62">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/reminder.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="35" lean-forward="true" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket_base.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="91" column="2" lean-forward="true" selection-start-line="91" selection-start-column="2" selection-end-line="91" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/user.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/rt/ticket.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/graphql/types/ticket_type.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/request_tracker_record.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="23" />
         </state>
       </provider>
     </entry>

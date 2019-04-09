@@ -1,9 +1,6 @@
-class RT::TicketBase < ActiveRecord::Base
-  establish_connection :request_tracker
+class RT::TicketBase < RequestTrackerRecord
   self.table_name = 'tickets'
   self.inheritance_column = :_type_disabled
-
-  scope :like, ->(field, value) { where arel_table[field].matches("%#{value}%") }
 
   LINKS_INVERTED_VALUES = { 'RefersTo' => 'ReferredToBy', 'ReferredToBy' => 'RefersTo',
                             'DependsOn' => 'DependedOnBy', 'DependedOnBy' => 'DependsOn',
@@ -17,14 +14,6 @@ class RT::TicketBase < ActiveRecord::Base
   has_many :groups, class_name: 'Group', foreign_key: :instance
   has_one :requestor_group, -> { where type: 'Requestor' }, class_name: 'Group', foreign_key: :instance
   has_many :requestors, through: :requestor_group, class_name: 'User', source: :users
-
-  # Below does not account for merged tickets transactions - If added remove custom methods below
-=begin
-    has_many :transactions, class_name: 'Transaction', foreign_key: :objectid
-    has_many :attachments, through: :transactions, class_name: 'Attachment', source: :attachment
-    has_many :comment_transactions, -> { where "type = ? OR type = ?", 'Comment', 'Create' }, class_name: 'Transaction', foreign_key: :objectid
-    has_many :comments, through: :comment_transactions, class_name: 'Attachment', source: :attachment
-=end
 
   has_one :owner_obj, class_name: 'User', primary_key: :owner, foreign_key: :id
   has_one :creator, class_name: 'User', primary_key: :creator, foreign_key: :id
@@ -73,10 +62,8 @@ class RT::TicketBase < ActiveRecord::Base
 
   # Todo: Optimize to avoid hitting DB
   def custom_fields_and_values
-    binding.pry
     results = {}
-    custom_field_values.each { |field| results[field.name] = field.value }
-    custom_fields.each { |field| results[field.name] = nil unless results[field.name] }
+    custom_fields.each { |field| results[field.name] = field.value_for(object_id: id) }
 
     results
   end
@@ -140,3 +127,11 @@ class RT::TicketBase < ActiveRecord::Base
         .or(join.where(links: {localtarget: current_and_merged_ids, type: LINKS_INVERTED_VALUES[type] }))
   end
 end
+
+# Below does not account for merged tickets transactions - If added remove custom methods
+=begin
+    has_many :transactions, class_name: 'Transaction', foreign_key: :objectid
+    has_many :attachments, through: :transactions, class_name: 'Attachment', source: :attachment
+    has_many :comment_transactions, -> { where "type = ? OR type = ?", 'Comment', 'Create' }, class_name: 'Transaction', foreign_key: :objectid
+    has_many :comments, through: :comment_transactions, class_name: 'Attachment', source: :attachment
+=end
