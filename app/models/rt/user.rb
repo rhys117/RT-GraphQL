@@ -28,8 +28,12 @@ class RT::User < RequestTrackerRecord
     end
   end
 
-  def tickets_missing_reminders
-    tickets.select { |ticket| ticket.no_reminder? }
+  def tickets_not_resolved
+    tickets.where.not(status: CLOSED_STATUSES)
+  end
+
+  def tickets_missing_reminder
+    tickets_not_resolved.select { |ticket| ticket.no_reminder? }
   end
 
   private

@@ -21,6 +21,6 @@ class RT::Ticket < RT::TicketBase
   end
 
   def no_reminder?
-    reminders.where(owner: owner.id).where.not(status: NOT_RESOLVED_STATUSES).count.zero?
+    reminders.where(owner: owner.id).where.not(status: CLOSED_STATUSES).count.zero?
   end
 end
